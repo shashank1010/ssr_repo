@@ -5,7 +5,7 @@ import App from './client/App';
 import Html from './client/Html';
 import { ServerStyleSheet } from 'styled-components'; // <-- importing ServerStyleSheet
 
-const port = 3000;
+const port = 8080;
 const server = express();
 
 server.use('/static', express.static('public'));
