@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 8080
 app.use(compression())
 
 // app.use('/static', express.static('public'));
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'build')))
 
 app.get('*', function (req, res) {
 	match({ routes: routes, location: req.url }, (err, redirect, props) => {

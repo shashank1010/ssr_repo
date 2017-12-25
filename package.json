@@ -4,9 +4,10 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "if-env NODE_ENV=production && yarn run start:prod || yarn run start:dev",
-		"start:dev": "webpack-dev-server --inline --content-base public/ --history-api-fallback",
-		"start:prod": "yarn run build && node server.bundle.js",
+		"start": "rm -rf build && if-env NODE_ENV=production && yarn run start:prod || yarn run start:dev",
+		"start:dev": "cp -r public/assets/. build && cp -r public/*.html build && yarn run start:wds",
+		"start:wds": "webpack-dev-server --inline --content-base build/ --history-api-fallback",
+		"start:prod": "cp -r public/assets/. build && yarn run build && node build/server.bundle.js",
 		"build:client": "webpack",
 		"build:server": "webpack --config webpack.server.config.js",
 		"build": "yarn run build:client && yarn run build:server"

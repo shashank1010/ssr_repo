@@ -6,7 +6,8 @@ module.exports = {
 	entry: path.resolve(__dirname, 'server.js'),
 
 	output: {
-		filename: 'server.bundle.js'
+		filename: 'server.bundle.js',
+	    path: 'build'
 	},
 
 	target: 'node',
