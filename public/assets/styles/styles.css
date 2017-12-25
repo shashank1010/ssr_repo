@@ -1,0 +1,13 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+
+div#app {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	min-height: 100vh;
+	background: linear-gradient(20deg, rgb(219, 112, 147), #daa357);
+}
