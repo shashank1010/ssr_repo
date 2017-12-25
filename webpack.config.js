@@ -1,28 +1,25 @@
-const webpack = require('webpack');
-const nodeExternals = require('webpack-node-externals');
-const path = require('path');
+var webpack = require('webpack')
 
 module.exports = {
-	entry: './src/server.js',
-	output: {
-		path: path.resolve(__dirname, 'dist'),
-		filename: 'server.js',
-		publicPath: '/'
-	},
-	target: 'node',
-	externals: nodeExternals(),
-	plugins: [
-		new webpack.DefinePlugin({
-			'process.env': {
-				NODE_ENV: `'production'`
-			}
-		})
-	],
-	
-	module: {
-		rules: [
-			{ test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
-			{ test: /\.css$/, use: 'css-loader', exclude: /node_modules/ },
-		],
-	}
-};
+  entry: './index.js',
+
+  output: {
+    path: 'public',
+    filename: 'bundle.js',
+    publicPath: '/'
+  },
+
+  plugins: process.env.NODE_ENV === 'production' ? [
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin()
+  ] : [],
+
+  module: {
+    loaders: [
+      { test: /\.css$/, loader: 'style!css' },
+      { test: /\.(ttf|eot|woff|woff2|svg|png|jpg)$/, loader: 'url' },
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react' }
+    ]
+  }
+}
