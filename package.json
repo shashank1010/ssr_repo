@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "npm install && if-env NODE_ENV=production && yarn run start:prod || yarn run start:dev",
+		"start": "yarn run start:prod",
 		"start:dev": "cp -r public/assets/. build && cp -r public/*.html build && yarn run start:wds",
 		"start:wds": "webpack-dev-server --inline --content-base build/ --history-api-fallback",
 		"start:prod": "cp -r public/assets/. build && yarn run build && node build/server.bundle.js",
