@@ -36,7 +36,7 @@ module.exports = (env) => ({
 		new webpack.DefinePlugin({
 		  process: {
 			env: {
-			  PORT: env.PORT ? env.PORT : null
+				PORT: env.PORT ? env.PORT : null
 			}
 		  }
 		})
