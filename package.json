@@ -9,7 +9,7 @@
 		"start:wds": "webpack-dev-server --inline --content-base build/ --history-api-fallback",
 		"start:prod": "cp -r public/assets/. build && yarn run build && node build/server.bundle.js",
 		"build:client": "webpack --display-error-details",
-		"build:server": "webpack --display-error-details --config webpack.server.config.js",
+		"build:server": "webpack --display-error-details --config webpack.server.config.js --env.PORT=2000",
 		"build": "yarn run build:client && yarn run build:server"
 	},
 	"author": "",

@@ -1,13 +1,14 @@
 var fs = require('fs')
 var path = require('path')
+var webpack = require('webpack')
 
-module.exports = {
+module.exports = (env) => ({
 
 	entry: path.resolve(__dirname, 'server.js'),
 
 	output: {
 		filename: 'server.bundle.js',
-	    path: __dirname + '/build',
+		path: __dirname + '/build',
 	},
 
 	target: 'node',
@@ -29,6 +30,16 @@ module.exports = {
 		loaders: [
 			{ test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react' }
 		]
-	}
+	},
 
-}
+	plugins: [
+		new webpack.DefinePlugin({
+		  process: {
+			env: {
+			  PORT: env.PORT ? env.PORT : null
+			}
+		  }
+		})
+	]
+
+})
