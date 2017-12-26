@@ -21,7 +21,8 @@
 		"react": "^0.14.7",
 		"react-dom": "^0.14.7",
 		"react-router": "^2.0.0",
-		"semantic-ui-css": "^2.2.12"
+		"semantic-ui-css": "^2.2.12",
+		"webpack": "^3.10.0"
 	},
 	"devDependencies": {
 		"babel-core": "^6.5.1",
@@ -36,7 +37,6 @@
 		"http-server": "^0.8.5",
 		"style-loader": "^0.19.1",
 		"url-loader": "^0.6.2",
-		"webpack": "^1.12.13",
 		"webpack-dev-server": "^1.14.1"
 	}
 }
