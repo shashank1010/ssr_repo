@@ -8,8 +8,8 @@
 		"start:dev": "cp -r public/assets/. build && cp -r public/*.html build && yarn run start:wds",
 		"start:wds": "webpack-dev-server --inline --content-base build/ --history-api-fallback",
 		"start:prod": "cp -r public/assets/. build && yarn run build && node build/server.bundle.js",
-		"build:client": "node node_modules/webpack/bin/webpack.js --display-error-details",
-		"build:server": "node node_modules/webpack/bin/webpack.js --display-error-details --config webpack.server.config.js",
+		"build:client": "webpack --display-error-details",
+		"build:server": "webpack --display-error-details --config webpack.server.config.js",
 		"build": "yarn run build:client && yarn run build:server"
 	},
 	"author": "",
